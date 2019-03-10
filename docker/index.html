@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker 시작하기 | Scratch</title>
+    <meta name="description" content="From Scratch">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.65ac630d.css" as="style"><link rel="preload" href="/assets/js/app.6bb03113.js" as="script"><link rel="preload" href="/assets/js/7.f2dbdc13.js" as="script"><link rel="prefetch" href="/assets/js/10.d9b6cc7e.js"><link rel="prefetch" href="/assets/js/11.b8befb14.js"><link rel="prefetch" href="/assets/js/12.2e34f7ca.js"><link rel="prefetch" href="/assets/js/13.096b6f1b.js"><link rel="prefetch" href="/assets/js/14.51b4dc30.js"><link rel="prefetch" href="/assets/js/15.118bb708.js"><link rel="prefetch" href="/assets/js/16.2b8d2c66.js"><link rel="prefetch" href="/assets/js/17.d0a337d0.js"><link rel="prefetch" href="/assets/js/18.388c31f0.js"><link rel="prefetch" href="/assets/js/19.ce0dfee2.js"><link rel="prefetch" href="/assets/js/2.8203c92b.js"><link rel="prefetch" href="/assets/js/20.ed7623b2.js"><link rel="prefetch" href="/assets/js/3.a38194a0.js"><link rel="prefetch" href="/assets/js/4.b180f008.js"><link rel="prefetch" href="/assets/js/5.1d8407ff.js"><link rel="prefetch" href="/assets/js/6.112386cb.js"><link rel="prefetch" href="/assets/js/8.6d5ead48.js"><link rel="prefetch" href="/assets/js/9.b1121130.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.65ac630d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Scratch</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/javascript/" class="nav-link">Javascirpt</a></div><div class="nav-item"><a href="/typescript/" class="nav-link">Typescript</a></div><div class="nav-item"><a href="/python/" class="nav-link">Python</a></div><div class="nav-item"><a href="/db/orm.html" class="nav-link">ORM</a></div><div class="nav-item"><a href="/ci/" class="nav-link">devOps</a></div><div class="nav-item"><a href="/docker/" class="nav-link router-link-exact-active router-link-active">Docker</a></div><div class="nav-item"><a href="/kubernetes/" class="nav-link">Kubernetes</a></div><div class="nav-item"><a href="/server/nginx.html" class="nav-link">Nginx</a></div><div class="nav-item"><a href="https://github.com/cluedit/cluedit.github.io/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wiki
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/cluedit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/javascript/" class="nav-link">Javascirpt</a></div><div class="nav-item"><a href="/typescript/" class="nav-link">Typescript</a></div><div class="nav-item"><a href="/python/" class="nav-link">Python</a></div><div class="nav-item"><a href="/db/orm.html" class="nav-link">ORM</a></div><div class="nav-item"><a href="/ci/" class="nav-link">devOps</a></div><div class="nav-item"><a href="/docker/" class="nav-link router-link-exact-active router-link-active">Docker</a></div><div class="nav-item"><a href="/kubernetes/" class="nav-link">Kubernetes</a></div><div class="nav-item"><a href="/server/nginx.html" class="nav-link">Nginx</a></div><div class="nav-item"><a href="https://github.com/cluedit/cluedit.github.io/wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wiki
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/cluedit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>Docker 시작하기</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/docker/#docker-container-만들기" class="sidebar-link">Docker Container 만들기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docker/#dockerfile-작성하기" class="sidebar-link">Dockerfile 작성하기</a></li><li class="sidebar-sub-header"><a href="/docker/#arg-instruction-활용법" class="sidebar-link">ARG instruction 활용법</a></li><li class="sidebar-sub-header"><a href="/docker/#env-값의-활용-예제" class="sidebar-link">ENV 값의 활용 예제</a></li><li class="sidebar-sub-header"><a href="/docker/#build-cache" class="sidebar-link">Build Cache</a></li></ul></li><li><a href="/docker/#docker-build-하기" class="sidebar-link">Docker build 하기</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docker/#docker-compose-활용하기" class="sidebar-link">docker compose 활용하기</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docker/#dockerignore" class="sidebar-link">.dockerignore</a><ul class="sidebar-sub-headers"></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="docker-시작하기"><a href="#docker-시작하기" aria-hidden="true" class="header-anchor">#</a> Docker 시작하기</h1> <p>Docker는 애플리케이션을 신속하게 구축, 테스트 및 배포할 수 있는 소프트웨어 플랫폼입니다. Docker는 소프트웨어를 컨테이너라는 표준화된 유닛으로 패키징하며, 이 컨테이너에는 라이브러리, 시스템 도구, 코드, 런타임 등 소프트웨어를 실행하는 데 필요한 모든 것이 포함되어 있습니다. Docker를 사용하면 환경에 구애받지 않고 애플리케이션을 신속하게 배포 및 확장할 수 있으며 코드가 문제없이 실행될 것임을 확신할 수 있습니다!</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p><strong>Docker를 사용해야 하는 이유?</strong>
+Docker를 사용하면 코드를 더 빨리 전달하고, 애플리케이션 운영을 표준화하고, 코드를 원활하게 이동하고, 리소스 사용률을 높여 비용을 절감할 수 있습니다. Docker를 사용하면 어디서나 안정적으로 실행할 수 있는 단일 객체를 확보하게 됩니다. Docker의 간단한 구문을 사용해 완벽하게 제어할 수 있습니다. 폭넓게 도입되었다는 것은 Docker를 사용할 수 있는 도구 및 상용 애플리케이션의 에코시스템이 강력하다는 의미입니다.</p></div> <h2 id="docker-container-만들기"><a href="#docker-container-만들기" aria-hidden="true" class="header-anchor">#</a> Docker Container 만들기</h2> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p><strong>컨테이너?</strong>
+도커 컨테이너란 일종의 소프트웨어를 이 소프트웨어의 실행에 필요한 모든 것을 포함하는 완전한 파일 시스템 안에 감싼 형태를 말합니다. OS 레벨의 가상화를 지원하는 것이라고 할 수 있습니다. 이 컨테이너는 코드, 런타임, 시스템 도구, 시스템 라이브러리 등 서버에 설치되는 무엇이든 아우르고 있습니다! 이는 실행 중인 환경에 관계 없이 언제나 동일하게 실행될 것을 보증합니다.</p></div> <p>먼저, Dockerfile을 작성해, container를 만들어봅시다.</p> <h3 id="dockerfile-작성하기"><a href="#dockerfile-작성하기" aria-hidden="true" class="header-anchor">#</a> Dockerfile 작성하기</h3> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>더 자세한 instruction의 사용법은 <a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener noreferrer">공식문서<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>에서 확인하세요!</p></div> <p>Dockerfile의 기본적인 format입니다.</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Comment
+INSTRUCTION arguments
+</code></pre></div><p>먼저, Dockerfile을 만들어봅시다.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">touch</span> ./Dockerfile
+<span class="token comment"># 또는</span>
+<span class="token function">vi</span> ./Dockerfile
+</code></pre></div><h4 id="from"><a href="#from" aria-hidden="true" class="header-anchor">#</a> FROM</h4> <p>FROM instruction을 이용해, 컨테이너의 base가 될 image를 선택합니다.</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
+# 또는
+FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
+</code></pre></div><h4 id="workdir"><a href="#workdir" aria-hidden="true" class="header-anchor">#</a> WORKDIR</h4> <p>Dockerfile에 작성한 instruction을 실행할 경로를 입력합니다.</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p><strong>RUN cd path</strong>로 경로를 변경하더라도,
+다음 instruction을 실행하는 시점에 경로가 초기화되므로 반드시 작성해야합니다.</p></div> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+WORKDIR &lt;path&gt;
+</code></pre></div><h4 id="copy"><a href="#copy" aria-hidden="true" class="header-anchor">#</a> COPY</h4> <p>파일이나 디렉토리를 도커 컨테이너로 복사합니다.</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+# 만약 경로에 whitespace가 포함되어 있다면, 이러한 형태로 작성해야합니다.
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+</code></pre></div><h4 id="add"><a href="#add" aria-hidden="true" class="header-anchor">#</a> ADD</h4> <p>COPY와 비슷하지만, url 경로를 입력해서 파일을 가져오는 것이 가능하고,
+압축 파일인 경우, 압축을 해제해 도커 컨테이너 내부로 복사합니다.</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+# 만약 경로에 whitespace가 포함되어 있다면, 이러한 형태로 작성해야합니다.
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+</code></pre></div><div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+
+# 도커 컨테이너의 base가 될 이미지를 선택합니다.
+FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
+FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
+
+# Dockerfile에 작성한 instruction을 실행할 경로를 입력합니다.
+# RUN cd &lt;path&gt; 커맨드를 사용해 경로를 변경하더라도,
+# 다음 instruction을 실행하는 시점에 경로가 초기화되므로 반드시 작성해야합니다.
+WORKDIR &lt;path&gt;
+
+# 파일이나 디렉토리를 도커 컨테이너로 복사합니다.
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+# 만약 경로에 whitespace가 포함되어 있다면, 이러한 형태로 작성해야합니다.
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+
+# COPY와 비슷하지만, url 경로를 입력해서 파일을 가져오는 것이 가능하고,
+# 압축 파일인 경우, 압축을 해제해 도커 컨테이너 내부로 복사합니다.
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+# 만약 경로에 whitespace가 포함되어 있다면, 이러한 형태로 작성해야합니다.
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+
+#
+ENTRYPOINT
+
+# /bin/sh -c
+RUN &lt;command&gt;
+
+# /bin/sh -c
+CMD &lt;command&gt;
+
+# 외부로
+EXPOSE &lt;port&gt; [&lt;port&gt;...]
+
+#
+VOLUME &lt;path&gt; [&lt;path&gt;...]
+
+# ENV 값을 설정하는 instruction입니다.
+ENV &lt;key&gt; &lt;value&gt;
+ENV &lt;key&gt;=&lt;value&gt;
+</code></pre></div><h3 id="arg-instruction-활용법"><a href="#arg-instruction-활용법" aria-hidden="true" class="header-anchor">#</a> ARG instruction 활용법</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>docker build --build-arg <span class="token operator">&lt;</span>varname<span class="token operator">&gt;=</span><span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>
+</code></pre></div><div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+
+ARG &lt;name&gt;[=&lt;default value&gt;]
+</code></pre></div><p>예제</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+
+ARG VERSION=latest
+FROM busybox:$VERSION
+ARG VERSION
+RUN echo $VERSION &gt; image_version
+</code></pre></div><h3 id="env-값의-활용-예제"><a href="#env-값의-활용-예제" aria-hidden="true" class="header-anchor">#</a> ENV 값의 활용 예제</h3> <p>ENV instruction을 사용해서, 값을 정해두고, ${key}로 값을 사용할 수 있습니다!</p> <div class="language-Dockerfile extra-class"><pre class="language-text"><code># Dockerfile
+
+FROM busybox
+ENV foo /bar
+WORKDIR ${foo}   # WORKDIR /bar
+ADD . $foo       # ADD . /bar
+COPY \$foo /quux # COPY $foo /quux
+</code></pre></div><h3 id="build-cache"><a href="#build-cache" aria-hidden="true" class="header-anchor">#</a> Build Cache</h3> <h2 id="docker-build-하기"><a href="#docker-build-하기" aria-hidden="true" class="header-anchor">#</a> Docker build 하기</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Dockerfile로 도커 이미지를 빌드합니다. context는 디렉토리 경로나 url을 입력해줍니다.</span>
+
+<span class="token comment"># . 경로를 context로 설정해, 도커 이미지를 빌드합니다.</span>
+docker build <span class="token keyword">.</span>
+
+<span class="token comment"># Dockerfile 경로를 직접 설정해줄 수 있습니다.</span>
+docker build -f /path/to/a/Dockerfile <span class="token keyword">.</span>
+
+<span class="token comment"># 도커 이미지를 빌드하면서, repository에 저장될 태그를 설정할 수 있습니다.</span>
+docker build -t shykes/myapp <span class="token keyword">.</span>
+
+<span class="token comment"># 여러개의 태그를 동시에 지정할 수도 있습니다.</span>
+docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest <span class="token keyword">.</span>
+</code></pre></div><h2 id="docker-compose-활용하기"><a href="#docker-compose-활용하기" aria-hidden="true" class="header-anchor">#</a> docker compose 활용하기</h2> <h2 id="dockerignore"><a href="#dockerignore" aria-hidden="true" class="header-anchor">#</a> .dockerignore</h2> <p>.gitignore를 사용할 때처럼, Dockerfile에서 COPY, ADD instruction을 사용할 때, 특정 파일이나 디렉토리를 무시할 수 있습니다. 아래는 .dockerignore의 예제입니다.</p> <div class="language-.dockerignore extra-class"><pre class="language-text"><code># .dockerignore
+
+# comment
+*/temp*
+*/*/temp*
+temp?
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.6bb03113.js" defer></script><script src="/assets/js/7.f2dbdc13.js" defer></script>
+  </body>
+</html>
